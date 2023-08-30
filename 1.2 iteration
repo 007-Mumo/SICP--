@@ -1,0 +1,43 @@
+*** Welcome to IELM ***  Type (describe-mode) or press C-h m for help.
+ELISP> 
+ELISP> ;;product ← counter * product
+;counter ← counter + 1
+*** Read error ***  End of file during parsing
+ELISP> ; (defun factorial(n)
+(fact-iter 1 1 n))
+*** IELM error ***  More than one sexp in input
+ELISP> ; (defun factorial(n)
+(fact-iter 1 1 n))
+(defun fact-iter (product counter max-count)
+(if (> counter max-count)
+product
+(fact-iter (* counter product)
+(+ counter 1)
+max-count)))
+*** IELM error ***  More than one sexp in input
+ELISP> (defun factorial(n)
+(defun iter(product counter)
+(if (> counter n)
+product
+(iter (* counter product)
+(+ counter 1))))
+(iter 1 1))
+factorial
+ELISP> (factorial 6)
+720 (#o1320, #x2d0)
+ELISP> (require threading)
+*** Eval error ***  Symbol’s value as variable is void: threading
+ELISP> (defun A(x y)
+(cond ((= y 0) 0)
+((= x 0) (* 2 y))
+((= y 1) 2)
+(else (A (- x 1) (A x (- y 1))))))
+A
+ELISP> (A 0 0)
+0 (#o0, #x0, ?\C-@)
+ELISP> (A 34 56)
+*** Eval error ***  Symbol’s value as variable is void: else
+ELISP> (A 4 5)
+*** Eval error ***  Symbol’s value as variable is void: else
+ELISP> 
+ELISP> 

@@ -1,0 +1,158 @@
+*** Welcome to IELM ***  Type (describe-mode) or press C-h m for help.
+ELISP> 345
+345 (#o531, #x159)
+ELISP> + 44
+*** IELM error ***  More than one sexp in input
+ELISP> + 4 4
+*** IELM error ***  More than one sexp in input
+ELISP> ( + 5 5 )
+10 (#o12, #xa, ?\C-j)
+ELISP> (defun add (a b) (+ a b))
+*** Eval error ***  Malformed arglist: nums
+ELISP> (defun add-nums (a b) (+ a b));; defining a new function
+add-nums
+ELISP> (add-nums 10 10)
+20 (#o24, #x14, ?\C-t)
+ELISP> (require 'ert);; testing in emacs
+ert
+ELISP> (ert-deftest add-nums-pos() (should (equal (add-nums 10 10) 20)))
+add-nums-pos
+ELISP> (add-nums 10 3 )
+13 (#o15, #xd, ?\C-m)
+ELISP> ( setq my-var 90)
+90 (#o132, #x5a, ?Z)
+ELISP> (defun square (x) (exp (double (log x))))
+square
+ELISP> ( setq my-var 90)
+90 (#o132, #x5a, ?Z)
+ELISP> ( sqaure 90)
+*** Eval error ***  Symbol’s function definition is void: sqaure
+ELISP> (square 90)
+*** Eval error ***  Symbol’s function definition is void: double
+ELISP> t
+t
+ELISP> nil
+nil
+ELISP> (null nil)
+t
+ELISP> (setq my-listi  '(1 2 3))
+(1 2 3)
+
+ELISP> (add-to-list 'my-list 12)
+(12 1 2 3)
+
+ELISP> (cons 34 my-list);; Constructs a new (my)list startiing  with34 
+(34 12 1 2 3)
+
+ELISP> (car my-list);; first element in the list
+12 (#o14, #xc, ?\C-l)
+ELISP> (cdr my list)
+*** Eval error ***  Wrong number of arguments: cdr, 2
+ELISP> (cdr my-list) 
+(1 2 3)
+
+ELISP> (nth 3 my-list)  
+3 (#o3, #x3, ?\C-c)
+ELISP> ( nth 0 cons my-list)
+*** Eval error ***  Wrong number of arguments: nth, 3
+ELISP> (nth 0 cons my-list)
+*** Eval error ***  Wrong number of arguments: nth, 3
+ELISP> nth 0 cons(my-list))
+*** IELM error ***  More than one sexp in input
+ELISP> (nth 0 cons my-list)
+*** Eval error ***  Wrong number of arguments: nth, 3
+ELISP> cons my-list
+*** IELM error ***  More than one sexp in input
+ELISP> (member 4 my-list)
+nil
+ELISP> (defun checks-number(number some-list)(member number some-list))
+
+checks-number
+ELISP> ( member 9 my-list)
+nil
+ELISP> (checks-number 12 my-list)
+(12 1 2 3)
+
+ELISP> (checks-number 3 my-list)
+(3)
+
+ELISP> (checks-number 2 my-list)
+(2 3)
+
+ELISP> ( require 'ert)
+ert
+ELISP> (ert-deftest check-number()(should (checks-number 1 '(1 2 3))))
+
+check-number
+ELISP> (setq my-list'(1 2 3 4))
+(1 2 3 4)
+
+ELISP> (dolist (elm my-list)
+        (when (=(mod elm 2)0)
+	  (print pizza))))
+
+
+*** IELM error ***  More than one sexp in input
+ELISP> (defun fact(n)
+       (if (= n 1)
+            1
+       (* n (fact( - n 1 )))))
+fac
+ELISP> (fac 17)
+*** Eval error ***  Symbol’s function definition is void: fact
+ELISP> (defun fact(n)
+(if (= n 1)
+1
+( * n (fact(-n 1)))))
+fact
+ELISP> (fact 7)
+*** Eval error ***  Symbol’s function definition is void: *n
+ELISP> (defun fact(n)
+      (if(= n 1)
+       1
+       (* n ( fact( -n 1)))))
+fact
+ELISP> (fact 7)
+*** Eval error ***  Symbol’s function definition is void: -n
+ELISP> (defun add(a b) (+ a b))
+
+add
+ELISP> (add 5 6)
+11 (#o13, #xb, ?\C-k)
+ELISP> (defun mult(a b) (* a b))
+
+mult
+ELISP> (mult 45 67)
+3015 (#o5707, #xbc7)
+ELISP> (defun factorial(n)
+       (if (=< n 1)
+          1
+       (* n (factoral (- n 1)))))
+factorial
+ELISP> (factorial 6)
+*** Eval error ***  Symbol’s function definition is void: =<
+ELISP> (defun (factorial n)
+(if (= n 1)
+1
+(* n (factorial (- n 1)))))
+*** Eval error ***  Malformed arglist: (if (= n 1) 1 (* n (factorial (- n 1))))
+ELISP> (defun factorial (n)
+(if (= n 1)
+1
+(* n (factorial (- n 1)))))
+factorial(define (+ a b)
+(if (= a 0) b (inc (+ (dec a) b))))
+ELISP> (factorial 6)
+720 (#o1320, #x2d0)
+ELISP> (define (+ a b)
+(if (= a 0) b (inc (+ (dec a) b))))
+(define (+ a b)
+(if (= a 0) b (+ (dec a) (inc b))))
+*** IELM error ***  More than one sexp in input
+ELISP> (define (+ a b)
+(if (= a 0) b (inc (+ (dec a) b))))
+*** Eval error ***  Symbol’s function definition is void: define
+ELISP> (defun (+ a b)
+(if (= a 0) b (inc (+ (dec a) b))))
+*** Eval error ***  Malformed arglist: (if (= a 0) b (inc (+ (dec a) b)))
+ELISP> 

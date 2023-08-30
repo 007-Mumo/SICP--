@@ -1,0 +1,8 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+(require threading)
+(defun factorail (n)
+  (~> (range 1 (+ n 1))
+      (fold &1_)))
+(factorial 5)

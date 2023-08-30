@@ -1,0 +1,45 @@
+*** Welcome to IELM ***  Type (describe-mode) or press C-h m for help.
+ELISP> (defun A(x y)
+(if (= y 0) 0)
+((= x 0) (* 2 y))
+((= y 1) 2)
+(else (A (- x 1) (A x (- y 1)))))
+A
+ELISP> (A 1 10)
+*** Eval error ***  Invalid function: (= x 0)
+ELISP> (A 2 4)
+*** Eval error ***  Invalid function: (= x 0)
+ELISP> ;; Example 1.11
+ELISP> (defun A(n)
+	 (if (< 3 n) n)
+	 else
+	 (+(- n 1) (*2(-n 2)) (*3(- n 3)))) 
+A
+ELISP> (A 4)
+*** Eval error ***  Symbol’s value as variable is void: else
+ELISP> ;; Solution recursive
+ELISP> (defun f(n)
+	 (if (< n 3)
+	     n
+	   (+ (f (- n 1)(defun f(n)
+	 (if (< n 3)
+	     n
+	   (+ (f (- n 1)
+		 (* 2 (f (- n 2)))
+		 (* 3 (f (- n 3)))))))
+f
+ELISP> (f 3)
+*** Eval error ***  Symbol’s function definition is void: *2
+ELISP> (defun f(n)
+	 (if (< n 3) 
+	     n
+	   (+ (f (- n 1)
+		 (* 2 (f (- n 2)))
+		 (* 3 (f (- n 3)))))))
+f
+ELISP> (f 6)
+*** Eval error ***  Wrong number of arguments: ((t) (n) (if (< n 3) n (+ (f (- n 1) (* 2 (f (- n 2))) (* 3 (f (- n 3))))))), 3
+ELISP> ;; pascals traingle using recursion and cons 
+ELISP> (f 6)
+*** Eval error ***  Wrong number of arguments: ((t) (n) (if (< n 3) n (+ (f (- n 1) (* 2 (f (- n 2))) (* 3 (f (- n 3))))))), 3
+ELISP> 
