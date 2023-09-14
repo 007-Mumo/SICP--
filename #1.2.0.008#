@@ -80,3 +80,7 @@ product
 (expt-iter 3 2 1)
    
 (expt 4 5)
+
+(defun fn(b n)
+   (cond ((=n 0) 1)
+         ((even

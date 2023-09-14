@@ -1,0 +1,258 @@
+Current directory is ~/
+GNU Guile 3.0.7
+Copyright (C) 1995-2021 Free Software Foundation, Inc.
+
+Guile comes with ABSOLUTELY NO WARRANTY; for details type `,show w'.
+This program is free software, and you are welcome to redistribute it
+under certain conditions; type `,show c' for details.
+
+Enter `,help' for help.
+scheme@(guile-user) [2]>(define (cube z)(* z z z))
+While compiling expression:
+Syntax error:
+unknown file:8:0: invalid or duplicate identifier in definition in form (lambda (a b) (if (> a b) 0 (+ a (sum-integers (+ a 1) b)) (define (sum-integers a b) (define (sum-integers a b) (if (> a b) 0 (+ a (sum-integers (+ a 1) b)))) (define (sum-integers a b) (if (> a b) 0 (+ a (sum-integers (+ a 1) b)))) (define (cube z) (* z z z)) z z z)) (define (cube z) (* z z z)) (define (cube z) (* z z z)) (define (cube z) (* z z z)) z)
+While reading expression:
+#<unknown port>:39:5: unexpected ")"
+scheme@(guile-user) [2]> (define (cube z)(* z z z))
+scheme@(guile-user) [2]> (define (cube z)(* z z z))
+scheme@(guile-user) [2]> (cube 3)
+$2 = 27
+scheme@(guile-user) [9]> (define (sum a b)
+(if (> a b) 
+0
+(+ a (sum(+ a 1) b))))
+scheme@(guile-user) [9]> (sum 1 3)
+$4 = 6
+scheme@(guile-user) [9]> (define (sum-cubes a b)
+(define (cube z)(* z z z ))
+(if (> a b)
+0
+(+ (cube a)(sum-cubes(+ a 1) b))))
+scheme@(guile-user) [9]> (sum-cubes 1 3)
+$5 = 36
+scheme@(guile-user) [9]>(define (pi-sum a b) 
+(if (> a b)
+0
+(+(/ 1.00(* a (+ a 2)))(pi-sum(+ a 4) b))))
+;;; <stdin>:70:7: warning: possibly unbound variable `a'
+;;; <stdin>:70:9: warning: possibly unbound variable `b'
+;;; <stdin>:72:24: warning: possibly unbound variable `pi-sum'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: b
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+While reading expression:
+#<unknown port>:72:44: unexpected ")"
+scheme@(guile-user) [10]> (define (sum-pi a b)
+(if (> a b)
+0
+(+ (/ 1.0 (* a (+ a 2)))(sum-pi (+ a 4)))))
+;;; <stdin>:76:24: warning: wrong number of arguments to `sum-pi'
+scheme@(guile-user) [10]> (define (sum-pi a b)
+(if (> a b)
+0
+(+ (/ 1.0 (* a(+ a 2)))(sum-pi (+ a 4) b))))
+scheme@(guile-user) [10]> (sum-pi 1 3)
+$6 = 0.3333333333333333
+scheme@(guile-user) [10]> (sum-pi 0 3)
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Throw to key `numerical-overflow' with args `("/" "Numerical overflow" #f #f)'.
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [11]> (define (sum-pi a b)
+(if (= a 0))
+"null"
+(if (> a b) 
+0
+(+ (/ 1.0 (* a(+ a 2)))(sum-pi (+ a 4) b))))
+While compiling expression:
+Syntax error:
+unknown location: source expression failed to match any pattern in form (if (> a b) = a 0)
+scheme@(guile-user) [11]> (define (sum-pi a b)
+(if (= a 0)
+"null"
+(if (> a b) 
+0
+(+ (/ 1.0 (* a(+ a 2)))(sum-pi (+ a 4) b)))))
+
+scheme@(guile-user) [11]> (sum-pi 0 3)
+$7 = "null"
+scheme@(guile-user) [11]>; using sigma notatio
+scheme@(guile-user) [11]>; Due to the repeating nature of the procedures , an abstraction can be produced and a formal template can be hypothesized
+scheme@(guile-user) [11]> ;(define (sum term a next b)
+(if (> a b)0
+(+ (term a)
+(sum term (next a) next b))));
+scheme@(guile-user) [12]> (define (inc n)(+ n 1)
+(define (sub-cubes a b)
+(sum-cubes a inc b)))
+While compiling expression:
+Syntax error:
+unknown file:105:0: body should end with an expression in form (lambda (n) (+ n 1) (define (sub-cubes a b) (sum-cubes a inc b)))
+scheme@(guile-user) [12]> (define (inc n)(+ n 1))
+scheme@(guile-user) [12]> (define (sum-cubes a b)(sum-cubes a inc b))
+;;; <stdin>:109:23: warning: wrong number of arguments to `sum-cubes'
+scheme@(guile-user) [12]> (define sum-cubes a b)
+While compiling expression:
+Syntax error:
+unknown location: source expression failed to match any pattern in form (define sum-cubes a b)
+scheme@(guile-user) [12]> (define cube-sum a b) 
+(define (inc n)(+ n 1))
+scheme@(guile-user) [12]> (define cube-sum a b)
+While compiling expression:
+Syntax error:
+unknown location: source expression failed to match any pattern in form (define cube-sum a b)
+scheme@(guile-user) [13]> define (cube-sum)
+While compiling expression:
+Syntax error:
+unknown file:116:0: unexpected syntax in form define
+;;; <stdin>:116:8: warning: possibly unbound variable `cube-sum'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: cube-sum
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [14]>(define (cube-sum a b)
+(define (inc n) (+ n 1)
+(define (cube z)(* z z z)
+(define (sum a b)(if (> a b)
+0
+(+ (cube a)(cube-sum(inc a) b))))))))
+(cube-sum 1 3)
+;;; <stdin>:130:0: warning: possibly wrong number of arguments to `cube-sum'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong number of arguments to #<procedure cube-sum ()>
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [15]>  (define (sum-cubes a b)
+(define (cube z)(* z z z ))
+(if (> a b)
+0
+(+ (cube a)(sum-cubes(+ a 1) b))))
+scheme@(guile-user) [15]>  (define (sum-cubes a b)
+(define (cube z)(* z z z ))
+(define (inc n)(+ n 1))
+(if (> a b)
+0
+(+ (cube a)(sum-cubes(inc a) b)))))
+While reading expression:
+#<unknown port>:154:2: unexpected ")
+scheme@(guile-user) [15](define (sum-cubes a b)
+(define (cube z)(* z z z))
+(define (inc n)(+ n 1))
+(if (> a b)
+0
+(define (inc n)(+ n 1))
+(+ (cube a)(sum-cubes((inc a) b)))))
+While compiling expression:
+Syntax error:
+unknown location: source expression failed to match any pattern in form (if (> a b) 0 (define (inc n) (+ n 1)) (+ (cube a) (sum-cubes ((inc a) b))))
+scheme@(guile-user) [15]> (define (sum-cubes a b)
+(define (cube z)(* z z z))
+(define (inc n)(+ n 1))
+(if (> a b)
+0
+(+ (cube a)(sum-cubes (inc a) b))))
+scheme@(guile-user) [15]> (sum-cubes 1 10)
+$8 = 3025
+scheme@(guile-user) [15]> (define (identity x) x)
+scheme@(guile-user) [15]> (define (sum-intergers a b)
+(define (sum a b)(+ a b))
+(define (inc n)(+ n 1))
+(+ a (sum-intergers(inc b))))
+;;; <stdin>:173:5: warning: wrong number of arguments to `sum-intergers'
+scheme@(guile-user) [15]> (define (sum-interges a b)
+(define (identity x) x)
+(deine (inc n) (+ n 1))
+(define (sum z y)(+ z y))
+(+ (identity a)(sum-interges (identity a) (inc b))))
+;;; <stdin>:178:0: warning: wrong number of arguments to `sum'
+;;; <stdin>:178:20: warning: wrong number of arguments to `identity'
+;;; <stdin>:178:5: warning: possibly wrong number of arguments to `sum-intergers'
+;;; <stdin>:176:1: warning: possibly unbound variable `deine'
+;;; <stdin>:176:12: warning: possibly unbound variable `n'
+While reading expression:
+#<unknown port>:179:52: unexpected ")"
+scheme@(guile-user) [15]> (define (sum-int a b))
+While compiling expression:
+Syntax error:
+unknown location: source expression failed to match any pattern in form (define (sum-int a b))
+scheme@(guile-user) [15]> (define (sum-int a b)
+(define (identity x) (x))
+(define (inc n)(+ n 1))
+(+ a (sum-int (identity a)(inc b))))
+scheme@(guile-user) [15]> (sum-int 1 10)
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [16]> (define (sum-int a b)
+(define (inc n )(+ n 1))
+(if (> a b) 
+0
+(+ a (sum-int (inc a) b))))
+scheme@(guile-user) [16]> (sum-int 1 4)
+$9 = 10
+scheme@(guile-user) [16]> (define (sum-int a b)
+(define (inc n )(+ n 1))
+(define (sum x y)(+ x y))
+(if (> a b) 
+0
+(sum( a (sum-int (inc a) b)))))
+;;; <stdin>:197:0: warning: wrong number of arguments to `sum'
+scheme@(guile-user) [16]> (define (sum-int a b)
+While compiling expression:
+Syntax error:
+unknown file:210:1: body should end with an expression in form (lambda (a b) (define (sum-int a b) > (define (sum term a next b) (define (iter a result) (if (> a b) result (iter (next a) (+ result (term a))))) (iter a 0) (define (inc n) (+ n)) 1 (define (inc n) (+ n 1)) (define (identity n) n)) (sum identity o inc 10)))
+scheme@(guile-user) [16]> (define (sum a b)
+(define (next n)(+ n 1))
+(if (> a b)
+result
+(iter (next a)(+ result( next a))))
+(iter a 0))
+(iter (next a)(+ result( next a))))
+While compiling expression:
+Syntax error:
+unknown location: source expression failed to match any pattern in form (if (> a b) result (define (next n) (+ n 1)) (if (> a b) result (iter (next a) (+ result (a)))))
+scheme@(guile-user) [16]>(define (sum a b)
+(define (next n)(+ n 1))
+(if (> a b)
+result
+(iter (next a)(+ result( next a))))
+(iter a 0))
+;;; <stdin>:242:0: warning: possibly unbound variable `result'
+;;; <stdin>:243:1: warning: possibly unbound variable `iter'
+scheme@(guile-user) [16]>(define (sum a b)
+(define (next n)(+ n 1))
+(if (> a b)
+result
+(iter (next a)(+ result (next a))))
+(iter a 0))
+;;; <stdin>:248:0: warning: possibly unbound variable `result'
+;;; <stdin>:249:1: warning: possibly unbound variable `iter'
+scheme@(guile-user) [16]> (define (sum a b)
+(define (next n)( + n 1))
+(define (iter a result)
+(if (> a b)
+result
+(iter (next a)(+ result (term a)))))
+(iter a 0))
+;;; <stdin>:256:25: warning: possibly unbound variable `term'
+scheme@(guile-user) [16]> (define (sum a b)
+(define (next n)(+ n 1))
+(define (iter a result)
+(if (> a b)
+result
+(iter (next a)(+ result (next a)))))
+(iter a o))
+;;; <stdin>:264:8: warning: possibly unbound variable `o'
+scheme@(guile-user) [16]> (define (sum a b)
+(define (next n)(+ n 1))
+(define (iter a result)
+(if (> a b)
+result
+(iter (next a)(+ result (next a)))))
+(iter a 0))
+While compiling expression:
+Syntax error:
+unknown file:266:0: body should end with an expression in form (lambda (n) (+ n 1) (define (iter a result) 1))
+scheme@(guile-user) [16]> 
