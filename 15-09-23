@@ -1,0 +1,615 @@
+Current directory is ~/
+GNU Guile 3.0.7
+Copyright (C) 1995-2021 Free Software Foundation, Inc.
+
+Guile comes with ABSOLUTELY NO WARRANTY; for details type `,show w'.
+This program is free software, and you are welcome to redistribute it
+under certain conditions; type `,show c' for details.
+
+Enter `,help' for help.
+scheme@(guile-user)> (define plus4(lambda (x) (+ x 4))) 
+scheme@(guile-user)> (plus 4 23)
+;;; <stdin>:2:1: warning: possibly unbound variable `plus'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: plus
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [1]> (plus4 23)
+$1 = 27
+scheme@(guile-user) [1]> (define (rand-sum x y z)
+(define (square x)(* x x))
+(+ x y (square z)))
+scheme@(guile-user) [1]> (rand-sum 3 4 5)
+$2 = 32
+scheme@(guile-user) [1]> (define (rand-square x y z)
+(define (square x)(* x x))
+(define rand-sum(lambda (x y z)(+ x y (square z)))))
+While compiling expression:
+Syntax error:
+unknown file:8:0: body should end with an expression in form (lambda (x y z) (define (square x) (* x x)) (define rand-sum (lambda (x y z) (+ x y (square z)))))
+scheme@(guile-user) [1]> (define trial2(lambda ( x y z)(+ x y (* z z))))
+scheme@(guile-user) [1]> (trial2 4 5 6)
+$3 = 45
+scheme@(guile-user) [1]> (define trial3(lambda ( x y z)(+ x y (lambda (z)(* z z)))))
+scheme@(guile-user) [1]> (trial3 4 5 6)
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+In procedure +: Wrong type: #<procedure 560ac29fd1d8 at <unknown port>:13:37 (z)>
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [2]> (define plus4(lambda (x) (+ x 4))) 
+scheme@(guile-user)> (plus 4 23)
+;;; <stdin>:2:1: warning: possibly unbound variable `plus'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: plus
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [1]> (plus4 23)
+$1 = 27
+scheme@(guile-user) [1]> (define (rand-sum x y z)
+(define (square x)(* x x))
+(+ x y (square z)))
+scheme@(guile-user) [1]> (rand-sum 3 4 5)
+$2 = 32
+scheme@(guile-user) [1]> (define (rand-square x y z)
+(define (square x)(* x x))
+(define rand-sum(lambda (x y z)(+ x y (square z)))))
+While compiling expression:
+Syntax error:
+unknown file:8:0: body should end with an expression in form (lambda (x y z) (define (square x) (* x x)) (define rand-sum (lambda (x y z) (+ x y (square z)))))
+scheme@(guile-user) [1]> (define trial2(lambda ( x y z)(+ x y (* z z))))
+scheme@(guile-user) [1]> (trial2 4 5 6)
+$3 = 45
+scheme@(guile-user) [1]> (define (f x y)
+(define (f-helper a b)
+(+ (* x (square a))
+(* y b)
+(* a b)))
+(f-helper (+ 1 (* x y))
+(- 1 y)))
+;;; <stdin>:16:0: warning: possibly unbound variable `scheme@'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: scheme@
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:16:8: warning: possibly unbound variable `guile-user'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: guile-user
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$4 = #<procedure > (#:optional _ _ . _)>
+;;; <stdin>:16:22: warning: possibly unbound variable `plus'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: plus
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:18:0: warning: possibly unbound variable `ice-9/boot-9.scm:1685:16:'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: ice-9/boot-9.scm:1685:16:
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:18:26: warning: possibly unbound variable `In'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: In
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$5 = #<procedure procedure (_)>
+;;; <stdin>:18:39: warning: possibly unbound variable `raise-exception:'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: raise-exception:
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:19:0: warning: possibly unbound variable `Unbound'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: Unbound
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:19:8: warning: possibly unbound variable `variable:'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: variable:
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:19:18: warning: possibly unbound variable `plus'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: plus
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:0: warning: possibly unbound variable `Entering'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: Entering
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:9: warning: possibly unbound variable `a'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: a
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:11: warning: possibly unbound variable `new'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: new
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:15: warning: possibly unbound variable `prompt.'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: prompt.
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:24: warning: possibly unbound variable `Type'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: Type
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:31: warning: possibly unbound variable `bt''
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: bt'
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:35: warning: possibly unbound variable `for'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: for
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:39: warning: possibly unbound variable `a'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: a
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$6 = #<procedure backtrace (#:optional _)>
+While compiling expression:
+Syntax error:
+unknown file:21:51: source expression failed to match any pattern in form or
+;;; <stdin>:21:56: warning: possibly unbound variable `q''
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: q'
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:59: warning: possibly unbound variable `to'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: to
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:21:62: warning: possibly unbound variable `continue.'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: continue.
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:22:0: warning: possibly unbound variable `scheme@'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: scheme@
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:22:8: warning: possibly unbound variable `guile-user'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: guile-user
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$7 = #<procedure > (#:optional _ _ . _)>
+$8 = 27
+$9 = 27
+$10 = #<procedure = (#:optional _ _ . _)>
+$11 = 27
+;;; <stdin>:24:0: warning: possibly unbound variable `scheme@'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: scheme@
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:24:8: warning: possibly unbound variable `guile-user'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: guile-user
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$12 = #<procedure > (#:optional _ _ . _)>
+;;; <stdin>:27:0: warning: possibly unbound variable `scheme@'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: scheme@
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:27:8: warning: possibly unbound variable `guile-user'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: guile-user
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$13 = #<procedure > (#:optional _ _ . _)>
+$14 = 32
+$15 = 32
+$16 = #<procedure = (#:optional _ _ . _)>
+$17 = 32
+;;; <stdin>:29:0: warning: possibly unbound variable `scheme@'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: scheme@
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:29:8: warning: possibly unbound variable `guile-user'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: guile-user
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$18 = #<procedure > (#:optional _ _ . _)>
+While compiling expression:
+Syntax error:
+unknown file:29:25: body should end with an expression in form (lambda (x y z) (define (square x) (* x x)) (define rand-sum (lambda (x y z) (+ x y (square z)))))
+;;; <stdin>:32:0: warning: possibly unbound variable `While'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: While
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:32:6: warning: possibly unbound variable `compiling'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: compiling
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:32:16: warning: possibly unbound variable `expression:'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: expression:
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:33:0: warning: possibly unbound variable `Syntax'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: Syntax
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:33:7: warning: possibly unbound variable `error:'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: error:
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:0: warning: possibly unbound variable `unknown'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: unknown
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:8: warning: possibly unbound variable `file:8:0:'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: file:8:0:
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:18: warning: possibly unbound variable `body'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: body
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:23: warning: possibly unbound variable `should'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: should
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:30: warning: possibly unbound variable `end'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: end
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:34: warning: possibly unbound variable `with'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: with
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:39: warning: possibly unbound variable `an'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: an
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:42: warning: possibly unbound variable `expression'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: expression
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:53: warning: possibly unbound variable `in'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: in
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:34:56: warning: possibly unbound variable `form'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: form
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+While compiling expression:
+Syntax error:
+unknown file:34:61: body should end with an expression in form (lambda (x y z) (define (square x) (* x x)) (define rand-sum (lambda (x y z) (+ x y (square z)))))
+;;; <stdin>:35:0: warning: possibly unbound variable `scheme@'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: scheme@
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:35:8: warning: possibly unbound variable `guile-user'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: guile-user
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$19 = #<procedure > (#:optional _ _ . _)>
+;;; <stdin>:36:0: warning: possibly unbound variable `scheme@'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: scheme@
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:36:8: warning: possibly unbound variable `guile-user'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: guile-user
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$20 = #<procedure > (#:optional _ _ . _)>
+$21 = 45
+$22 = 45
+$23 = #<procedure = (#:optional _ _ . _)>
+$24 = 45
+;;; <stdin>:38:0: warning: possibly unbound variable `scheme@'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: scheme@
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+;;; <stdin>:38:8: warning: possibly unbound variable `guile-user'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: guile-user
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+$25 = #<procedure > (#:optional _ _ . _)>
+;;; <stdin>:40:9: warning: possibly unbound variable `square'
+scheme@(guile-user) [58]> (define (f x y)
+(define (f-helper a b)
+(+(* x (* a a))(* y b)(* a b)))
+(f-helper (+ 1 (* x y))(- 1 y)))
+;;; <stdin>:47:3: warning: possibly unbound variable `*x'
+scheme@(guile-user) [58]>(define (f x y)
+(define (f-helper a b)
+(+(* x (* a a))(* y b)(* a b)))
+(f-helper (+ 1 (* x y))(- 1 y)))
+While reading expression:
+#<unknown port>:51:2: unexpected ")"
+scheme@(guile-user) [58]>(define (f x y)
+(define (f-helper a b)
+(+(* x (* a a))(* y b)(* a b)))
+(f-helper (+ 1 (* x y))(- 1 y)))
+scheme@(guile-user) [58]>(f 34 45)
+$26 = 79625330
+scheme@(guile-user) [58]> (define (f x y)
+((lambda (a b)
+(+ (* x (* a a))(* y b)(* a b)))(+ 1 (* x y))(- 1 y)))
+scheme@(guile-user) [58]> (f 34 45)
+$27 = 79625330
+scheme@(guile-user) [58]> (define (f x y)
+(let ((a (+ 1 (* x y)))
+      (b (- 1 y)))
+(+ (* x ( * a a)) (* y b)(* a b))))
+scheme@(guile-user) [58]> (f 34 45)
+$28 = 79625330
+scheme@(guile-user) [58]> (let ((x 3)(y (+ x 2)))
+(* x y))
+;;; <stdin>:67:17: warning: possibly unbound variable `x'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: x
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [59]> (let ((x 3)(y (+ x 2)))
+(* x y))
+;;; <stdin>:69:17: warning: possibly unbound variable `x'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: x
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [60]> (let (( x 3)(y (+ x 2)))
+(* x y))
+;;; <stdin>:71:18: warning: possibly unbound variable `x'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: x
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [61]> (define (trial61 x)
+(let ((x 3)
+(y (+ x 2)))
+(* x y)))
+scheme@(guile-user) [61]> (trial61 2)
+$29 = 12
+scheme@(guile-user) [61]> (trial61 8)
+$30 = 30
+scheme@(guile-user) [61]> (trial 8.333333)
+;;; <stdin>:83:1: warning: possibly unbound variable `trial'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: trial
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [62]> (trial61 8.333333)
+$31 = 30.999999
+scheme@(guile-user) [62]> (trial61 (+ 8 (/1 3)))
+;;; <stdin>:85:15: warning: possibly unbound variable `/1'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: /1
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [63]> (trial61 (+8(/ 1 3)))
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Wrong type to apply: 8
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [64]> (trial61  (+ 8(/ 1 3)))
+$32 = 31
+scheme@(guile-user) [64]> (define (Factorial a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (> a b)
+result
+(iter (inc a)(* result (inc a)))))
+(iter a 1))
+scheme@(guile-user) [64]> (Factorial 1 10)
+$33 = 39916800
+scheme@(guile-user) [64]> (define (SeqAdd a b)
+(define (inc n)(+ n 1)
+(define (iter a result)
+(if (> a b)
+result
+(iter (inc a)(+ result (inc a)))))
+(iter a 1)))
+While compiling expression:
+Syntax error:
+unknown file:96:0: body should end with an expression in form (lambda (a b) (define (inc n) (+ n 1) (define (iter a result) (if (> a b) result (iter (inc a) (+ result (inc a))))) (iter a 1)))
+scheme@(guile-user) [64]> (define (SeqAdd a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (> a b)
+result
+(iter  a )(+ result (inc a)))))
+(iter a 1))
+scheme@(guile-user) [64]> (SeqAdd 1 10)
+$34 = 66
+scheme@(guile-user) [64]> (iter a 1))
+;;; <stdin>:112:1: warning: possibly unbound variable `iter'
+;;; <stdin>:112:6: warning: possibly unbound variable `a'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: iter
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+While reading expression:
+#<unknown port>:112:12: unexpected ")"
+scheme@(guile-user) [65]> (define (SeqAdd a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (> a b)
+result
+(iter  a )(+ result (inc a)))))
+(iter a 1))
+While reading expression:
+#<unknown port>:115:2: unexpected ")"
+scheme@(guile-user) [65]> (define (SeqAdd a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (> a b)
+result
+(iter (inc a) (* result (inc a)))))
+(iter a 1))
+  <tool-bar> <stop>ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+User interrupt
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [66]> (define (SeqAdd a b)
+;;; <stdin>:125:1: warning: possibly unbound variable `a'
+;;; <stdin>:125:3: warning: possibly unbound variable `b'
+scheme@(guile-user) [66]> (define (SeqAdd a b)
+(define (inc n)(+ n 1)) 
+(define (iter a result)
+(if (> a b)
+result
+(iter (inc a)(* result (inc a)))))
+(iter (- a 1) 1))
+scheme@(guile-user) [66]> (SeqAdd 1 10)
+$35 = 39916800
+scheme@(guile-user) [66]> (SeqAdd 0 10)
+$36 = 0
+scheme@(guile-user) [66]> (SeqAdd 2 10)
+$37 = 39916800
+scheme@(guile-user) [66]> (Seq 3 10)
+;;; <stdin>:136:1: warning: possibly unbound variable `Seq'
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+Unbound variable: Seq
+
+Entering a new prompt.  Type `,bt' for a backtrace or `,q' to continue.
+scheme@(guile-user) [67]> (SeqAdd 9 10)
+$38 = 990
+scheme@(guile-user) [67]> (define (Trial67 a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (> a b)
+result
+(if (> a b)While reading expression:
+User interrupt
+scheme@(guile-user) [67]> (define (Trial67 a b)
+(define (inc n)(+ n 1))
+(if (>= a b)
+result
+(iter (inc a)(* result (inc(a)))))
+(iter a 1))
+While compiling expressio result n:
+Syntax error:
+unknown location: source expression failed to match any pattern in form (if (> a b) iter (inc a) (* result (inc (a))))
+While reading expression:
+#<unknown port>:150:4: unexpected ")"
+scheme@(guile-user) [67]> (define (Factorial a b)
+(define(inc n)(+ n 1))
+(define (iter a result)
+(if (> a b)
+result
+(iter (inc a)(* result (inc a)))))
+(iter a 1))
+scheme@(guile-user) [67]> (Factorial 1 10)
+$39 = 39916800
+scheme@(guile-user) [67]> (define (f a b)
+(define(inc n)(+ n 1))
+(if (>= a b)
+result
+(iter (inc a)(* result (inc a))))
+  <tool-bar> <stop>  <tool-bar> <stop>While reading expression:
+User interrupt
+scheme@(guile-user) [67]>   <tool-bar> <stop>While reading expression:
+User interrupt
+scheme@(guile-user) [67]>(define (f a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (>= a b)
+result
+(iter (inc a)(* result (inc a)))))
+(iter a 1))
+  <tool-bar> <stop>  <tool-bar> <stop>While reading expression:
+User interrupt
+scheme@(guile-user) [67]> (define (f a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (>= a b)
+result
+(iter (inc a)(* result (inc a)))))
+(iter a 1))
+scheme@(guile-user) [67]> (f 1 10)
+$40 = 3628800
+scheme@(guile-user) [67]> (define (f a b)
+(define (inc n)(+ n 1))
+(if (>= a b)
+result
+(iter (inc a)(* result (inc a)))))While reading expression:
+User interrupt
+scheme@(guile-user) [67]> (iter (inc a)(+ result (inc a)  <tool-bar> <stop>  <tool-bar> <stop>While reading expression:
+User interrupt
+scheme@(guile-user) [67]> (define (f a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (>= a b)
+result
+result
+(iter (inc a)(+ result(inc a)))))
+(iter a 1))
+While compiling expression:
+Syntax error:
+unknown location: source expression failed to match any pattern in form (if (>= a b) rsult esult result (iter (inc a) (+ result (inc a))))
+scheme@(guile-user) [67]> (define (f a b)
+(define (inc n)(+ n 1))
+(define (iter a result)
+(if (>= a b)
+result
+(iter (inc a)(+ result (inc a)))))
+(iter a 1))
+scheme@(guile-user) [67]> (f 1 10)
+$41 = 55
+scheme@(guile-user) [67]> 
